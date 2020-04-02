@@ -1,3 +1,9 @@
+#### This is a project created utilizing Play, sbt, lombok, jOOQ, and Flyway for backend technologies, and React, React-Bootstrap, React-Redux, React-Router, Redux-Saga, and Immutable.JS for frontend technologies.
+  
+  
+![Play Logo](play.png) ![React Logo](react.png) 
+  
+  
 ***NOTE: Play Framework is currently compatible with Java 8 and Java 11. Due to unknown potential issues with compatibility of Java 11 and other used technologies, use Java 8 rather than Java 11. As of now, Java 8 is the most used version of Java, with Java 11 the only other version of Java with long-term support.***  
   
 **Java 8 Setup:**  
@@ -12,7 +18,10 @@ Download and install using installation wizard from https://piccolo.link/sbt-1.3
 More information on setting up sbt can be found here: https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Windows.html  
   
 **Play Framework Setup (Built-in to sbt):**  
-Enter command 'sbt new playframework/play-java-seed.g8' in desired directory of project  
+Open command prompt and enter the following command in desired directory of project  :
+```
+'sbt new playframework/play-java-seed.g8'
+```
 More information on setting up Play Framework can be found here: https://www.playframework.com/documentation/2.8.x/NewApplication  
   
 **Lombok Setup:**  
@@ -31,14 +40,16 @@ Download SQLite JDBC (Java Database Connector) .jar file from https://bitbucket.
 Create SQLite database. Example using command line here: https://sqlite.org/cli.html  
 Create .XML file for code generation. Example for SQLite database in sample-jooq-setup/library.xml  
 More information on configuring .XML can be found here: https://www.jooq.org/doc/3.13/manual/code-generation/  
-Drag jOOQ .jar files, JDBC .jar file, and .XML file into a temporary directory, then enter following command in the command prompt(may need to change variables based on filed names/locations):  
+Drag jOOQ .jar files, JDBC .jar file, and .XML file into a temporary directory, then enter following command sequence in the command prompt(may need to change variables based on filed names/locations):  
   
-java -classpath jooq-3.13.1.jar;^  
-jooq-meta-3.13.1.jar;^  
-jooq-codegen-3.13.1.jar;^  
-reactive-streams-1.0.2.jar;^  
-sqlite-jdbc-3.30.1.jar;. ^  
-org.jooq.codegen.GenerationTool library.xml  
+```
+java -classpath jooq-3.13.1.jar;^
+jooq-meta-3.13.1.jar;^
+jooq-codegen-3.13.1.jar;^
+reactive-streams-1.0.2.jar;^
+sqlite-jdbc-3.30.1.jar;. ^
+org.jooq.codegen.GenerationTool library.xml
+```
   
 ***NOTE: That 5th command has '. ' after the semi-colon! Do not forget that, or you will receive an unfriendly error that is difficult to debug!***  
   
