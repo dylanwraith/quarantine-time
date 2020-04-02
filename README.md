@@ -1,7 +1,7 @@
 #### This is a project created utilizing Play, sbt, lombok, jOOQ, and Flyway for backend technologies, and React, React-Bootstrap, React-Redux, React-Router, Redux-Saga, and Immutable.JS for frontend technologies.
   
   
-![Play Logo](ff-research\public\images\play.png) ![React Logo](ff-research\public\images\react.png) 
+![Play Logo](./ff-research/public/images/play.png) ![add](./ff-research/public/images/add.png) ![React Logo](./ff-research/public/images/react.png) ![add](./ff-research/public/images/add.png) ![jOOQ Logo](./ff-research/public/images/jooq.png)
   
   
 ***NOTE: Play Framework is currently compatible with Java 8 and Java 11. Due to unknown potential issues with compatibility of Java 11 and other used technologies, use Java 8 rather than Java 11. As of now, Java 8 is the most used version of Java, with Java 11 the only other version of Java with long-term support.***  
