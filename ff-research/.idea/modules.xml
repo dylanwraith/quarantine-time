@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ff-research.iml" filepath="$PROJECT_DIR$/.idea/ff-research.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flyway-sbt-test1.iml" filepath="$PROJECT_DIR$/.idea/modules/flyway-sbt-test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flyway-sbt-test1-build.iml" filepath="$PROJECT_DIR$/.idea/modules/flyway-sbt-test1-build.iml" />
     </modules>
   </component>
 </project>
