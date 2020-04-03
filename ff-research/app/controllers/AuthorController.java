@@ -24,7 +24,7 @@ import java.sql.*;
 
 public class AuthorController extends Controller {
     private HttpExecutionContext ec;
-    private String databaseUrl = "jdbc:sqlite:C:\\Users\\dw0519\\Desktop\\FFResearch\\ff-research\\project\\resources\\db\\library.db";
+    private String databaseUrl = "jdbc:sqlite:C:\\Users\\dw0519\\Desktop\\FFResearch\\ff-research\\resources\\db\\library.db";
 
     @Inject
     public AuthorController(HttpExecutionContext ec) {
@@ -41,10 +41,9 @@ public class AuthorController extends Controller {
                 AuthorModel author = Json.fromJson(json,  AuthorModel.class);
                 DSLContext create = DSL.using(conn, SQLDialect.SQLITE);
                 int result = create
-                        .insertInto(AUTHOR, AUTHOR.ID, AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME)
-                        .values(author.getId(), author.getFirstName(), author.getLastName())
+                        .insertInto(AUTHOR, AUTHOR.ID, AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, AUTHOR.ADDRESS)
+                        .values(author.getId(), author.getFirstName(), author.getLastName(), "2839 Barnard Street")
                         .execute();
-                System.out.println("Result = " + result);
                 return ok(Util.createResponse("Successfully added author to database.", true));
             }
             catch (Exception e) {

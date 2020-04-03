@@ -5,6 +5,7 @@ package schema;
 
 
 import schema.tables.Author;
+import schema.tables.FlywaySchemaHistory;
 
 
 /**
@@ -17,4 +18,9 @@ public class Tables {
      * The table <code>author</code>.
      */
     public static final Author AUTHOR = Author.AUTHOR;
+
+    /**
+     * The table <code>flyway_schema_history</code>.
+     */
+    public static final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 }
