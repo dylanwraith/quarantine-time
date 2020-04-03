@@ -102,46 +102,44 @@ More information on the jOOQ sbt plugin can be found here: https://github.com/fl
 Create src directory within main project, and place codegen.XML file inside.  
 Create lib directory within main project, and place all [dependency].jar files inside.  
 Add dependency .jar files to IntelliJ Path Variables:  
-    Step 1: Go to File->Settings in IntelliJ IDE, then type Path Variables in the search box.  
-    Step 2: Click '+' to add dependencies one by one. Name each dependency, then enter filepath as value.  
-        jOOQ files needed: jooq.jar, jooq-codegen.jar, jooq-meta.jar, reactive-stream.jar, sqlite-jdbc.jar  
+  
+1. Go to File->Settings in IntelliJ IDE, then type Path Variables in the search box.  
+  
+2. Click '+' to add dependencies one by one. Name each dependency, then enter filepath as value.  
+    * jOOQ files needed: jooq.jar, jooq-codegen.jar, jooq-meta.jar, reactive-stream.jar, sqlite-jdbc.jar  
+    * Lombok files needed: lombok.jar  
+  
 Install jOOQ sbt plugin:  
-    Step 1: Add this line of code to plugins.sbt:  
-    ```
+  
+1. Add this line of code to the end of plugins.sbt:  
+```
 addSbtPlugin("com.github.kxbmap" % "sbt-jooq" % "0.4.1")
-    ```   
-    Step 2: Add these lines of code to build.sbt:  
-    ```
-// Enable the plugin
+```   
+  
+2. Add these lines of code to the end of build.sbt:  
+```
 enablePlugins(JooqCodegen)
-
-// Add your database driver dependency to `jooq` scope
 libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.30.1"
-
-//jOOQ version
 jooqVersion := "3.13.1"
-
 jooqOrganization := "org.jooq"
-
-// Automatically add jOOQ dependencies
 autoJooqLibrary := true
-
-// Set filepath for codegen.XML
 jooqCodegenConfig := baseDirectory.value / "src/library.xml"
-
-// Always execute code generation. Can change to IfAbsent or Never
 jooqCodegenStrategy := CodegenStrategy.IfAbsent
-    ```  
+```  
   
 More information on the jOOQ sbt plugin can be found here: https://github.com/kxbmap/sbt-jooq  
   
 Create a run configuration:  
-    Step 1: Go to Run->Edit Configurations within the IntelliJ IDE, then click '+' to create a new run configuration.  
-    Step 2: Select sbt task as your configuration type.  
-    Step 3: Rename task, then enter the following inside of Tasks textbox:  
-    ```
+  
+1. Go to Run->Edit Configurations within the IntelliJ IDE, then click '+' to create a new run configuration.  
+  
+2. Select sbt task as your configuration type.  
+  
+3. Rename task, then enter the following inside of Tasks textbox:  
+```
 flywayMigrate; jooqCodegen; run;
-    ```  
-    Step 4: Uncheck the box next to 'Use sbt shell', then click Apply and close the window.  
+```  
+  
+4. Uncheck the box next to 'Use sbt shell', then click Apply and close the window.  
 
-Click the play button in the top right of IntelliJ IDE to run project.
+5. Click the play button in the top right of IntelliJ IDE to run project.  
