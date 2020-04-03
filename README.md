@@ -98,7 +98,7 @@ org.jooq.codegen.GenerationTool library.xml
 ```  
 More information on the jOOQ sbt plugin can be found here: https://github.com/flyway/flyway-sbt
 
-**sbt Automation with IntelliJ IDEA Setup:**
+**sbt Automation with IntelliJ IDEA Setup:**  
 Create src directory within main project, and place codegen.XML file inside.  
 Create lib directory within main project, and place all [dependency].jar files inside.  
 Add dependency .jar files to IntelliJ Path Variables:  
