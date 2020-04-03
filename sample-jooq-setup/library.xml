@@ -4,7 +4,7 @@
   <jdbc>
 	<!-- Retrieved from https://stackoverflow.com/questions/1525444/how-to-connect-sqlite-with-java -->
     <driver>org.sqlite.JDBC</driver>
-    <url>jdbc:sqlite:C:/Users/dw0519/Desktop/FFResearch/ff-research/resources/db/library.db</url>
+    <url>jdbc:sqlite:../ff-research/resources/db/library.db</url>
 	  <user></user>
     <password></password>
   </jdbc>
@@ -21,7 +21,7 @@
 
     <target>
       <packageName>schema</packageName>
-      <directory>C:\Users\dw0519\Desktop\FFResearch\ff-research\app</directory>
+      <directory>..\ff-research\app</directory>
     </target>
   </generator>
 </configuration>
