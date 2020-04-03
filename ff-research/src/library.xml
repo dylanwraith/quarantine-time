@@ -4,7 +4,7 @@
   <jdbc>
 	<!-- Retrieved from https://stackoverflow.com/questions/1525444/how-to-connect-sqlite-with-java -->
     <driver>org.sqlite.JDBC</driver>
-    <url>jdbc:sqlite:../ff-research/resources/db/library.db</url>
+    <url>jdbc:sqlite:resources/db/library.db</url>
 	  <user></user>
     <password></password>
   </jdbc>

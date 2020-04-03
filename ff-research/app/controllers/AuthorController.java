@@ -24,7 +24,7 @@ import java.sql.*;
 
 public class AuthorController extends Controller {
     private HttpExecutionContext ec;
-    private String databaseUrl = "jdbc:sqlite:C:\\Users\\dw0519\\Desktop\\FFResearch\\ff-research\\resources\\db\\library.db";
+    private String databaseUrl = "jdbc:sqlite:resources\\db\\library.db";
 
     @Inject
     public AuthorController(HttpExecutionContext ec) {
