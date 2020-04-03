@@ -23,12 +23,20 @@ import static schema.Tables.*;
 import java.sql.*;
 
 public class AuthorController extends Controller {
+
     private HttpExecutionContext ec;
     private String databaseUrl = "jdbc:sqlite:resources\\db\\library.db";
 
     @Inject
     public AuthorController(HttpExecutionContext ec) {
-        this.ec = ec;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.ec = ec;
+        }
+        catch(Exception e) {
+            System.out.println("Error: unable to load driver class!");
+            System.exit(1);
+        }
     }
 
     public CompletionStage<Result> create(Http.Request request) {
