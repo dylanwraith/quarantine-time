@@ -4,19 +4,24 @@
 package schema.tables;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row3;
+import org.jooq.Row4;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
+import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.TableImpl;
 
 import schema.DefaultSchema;
+import schema.Keys;
 import schema.tables.records.AuthorRecord;
 
 
@@ -26,7 +31,7 @@ import schema.tables.records.AuthorRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Author extends TableImpl<AuthorRecord> {
 
-    private static final long serialVersionUID = 196179102;
+    private static final long serialVersionUID = -1609153632;
 
     /**
      * The reference instance of <code>author</code>
@@ -49,12 +54,17 @@ public class Author extends TableImpl<AuthorRecord> {
     /**
      * The column <code>author.first_name</code>.
      */
-    public final TableField<AuthorRecord, String> FIRST_NAME = createField(DSL.name("first_name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "");
+    public final TableField<AuthorRecord, String> FIRST_NAME = createField(DSL.name("first_name"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
      * The column <code>author.last_name</code>.
      */
-    public final TableField<AuthorRecord, String> LAST_NAME = createField(DSL.name("last_name"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "");
+    public final TableField<AuthorRecord, String> LAST_NAME = createField(DSL.name("last_name"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+
+    /**
+     * The column <code>author.address</code>.
+     */
+    public final TableField<AuthorRecord, String> ADDRESS = createField(DSL.name("address"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
 
     /**
      * Create a <code>author</code> table reference
@@ -95,6 +105,16 @@ public class Author extends TableImpl<AuthorRecord> {
     }
 
     @Override
+    public UniqueKey<AuthorRecord> getPrimaryKey() {
+        return Keys.PK_AUTHOR;
+    }
+
+    @Override
+    public List<UniqueKey<AuthorRecord>> getKeys() {
+        return Arrays.<UniqueKey<AuthorRecord>>asList(Keys.PK_AUTHOR);
+    }
+
+    @Override
     public Author as(String alias) {
         return new Author(DSL.name(alias), this);
     }
@@ -121,11 +141,11 @@ public class Author extends TableImpl<AuthorRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row3 type methods
+    // Row4 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Integer, String, String> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Row4<Integer, String, String, String> fieldsRow() {
+        return (Row4) super.fieldsRow();
     }
 }

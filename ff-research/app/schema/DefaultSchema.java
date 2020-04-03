@@ -12,6 +12,7 @@ import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
 import schema.tables.Author;
+import schema.tables.FlywaySchemaHistory;
 
 
 /**
@@ -20,7 +21,7 @@ import schema.tables.Author;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DefaultSchema extends SchemaImpl {
 
-    private static final long serialVersionUID = -707138134;
+    private static final long serialVersionUID = -323091941;
 
     /**
      * The reference instance of <code>DEFAULT_SCHEMA</code>
@@ -31,6 +32,11 @@ public class DefaultSchema extends SchemaImpl {
      * The table <code>author</code>.
      */
     public final Author AUTHOR = Author.AUTHOR;
+
+    /**
+     * The table <code>flyway_schema_history</code>.
+     */
+    public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * No further instances allowed
@@ -48,6 +54,7 @@ public class DefaultSchema extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
-            Author.AUTHOR);
+            Author.AUTHOR,
+            FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY);
     }
 }
