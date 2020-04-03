@@ -55,3 +55,38 @@ org.jooq.codegen.GenerationTool library.xml
   
 Finally, add jOOQ .jar files to project path to use within project.  
 More information on setting up jOOQ can be found here: https://www.jooq.org/doc/latest/manual/getting-started/tutorials/jooq-in-7-steps/
+
+**Fylway Setup:**  
+Add the following line to the end of plugins.sbt (found in ff-research/project):  
+```
+addSbtPlugin("io.github.davidmweber" % "flyway-sbt" % "6.2.3")
+```
+Create the directory 'resources/db/migration' within ff-research.  
+Place database file in db directory.  
+Add the following lines to the end of build.sbt(found in ff-research), be sure to update database name:  
+```  
+enablePlugins(FlywayPlugin)
+version := "0.0.1"
+name := "flyway-sbt-test1"
+
+libraryDependencies += "org.hsqldb" % "hsqldb" % "2.5.0"
+
+flywayUrl := "jdbc:sqlite:resources/db/library.db"
+flywayLocations += "filesystem:resources/db/migration"
+```
+  
+Create SQL files, then add them to migration folder after naming them using this template: **V#__name_of_migration.sql**  
+Using the command prompt at the main project directory, enter following command to execute migrations:  
+```
+sbt flywayMigrate
+```  
+  
+Recompile jOOQ classes using following command:
+```
+java -classpath jooq-3.13.1.jar;^
+jooq-meta-3.13.1.jar;^
+jooq-codegen-3.13.1.jar;^
+reactive-streams-1.0.2.jar;^
+sqlite-jdbc-3.30.1.jar;. ^
+org.jooq.codegen.GenerationTool library.xml
+```
