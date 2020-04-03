@@ -8,9 +8,9 @@ target
 /RUNNING_PID
 null/
 target/
-#ff-research/null/
-#ff-research/project/project/
-#ff-research/project/target/
+ff-research/null/
+ff-research/project/project/
+ff-research/project/target/
 bin/
 /db
 .eclipse
